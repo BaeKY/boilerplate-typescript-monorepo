@@ -1,0 +1,22 @@
+{
+  "name": "@bob/sample-package",
+  "version": "0.0.1",
+  "private": true,
+  "bin": "./dist/src/index.js",
+  "main": "./src/",
+  "scripts": {
+    "build": "tsc --build --force",
+    "dev": "export NODE_ENV=dev && ts-node-dev --respawn --transpile-only ./src/index.ts",
+    "prepackaging": "pkg . --target node18-alpine-x64 --output ./dist/bin/server",
+    "packaging": "../../scripts/docker-build.sh",
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --watch --passWithNoTests"
+  },
+  "dependencies": {
+    "@bob/greeting-service": "workspace:*",
+    "@nestjs/common": "^9.2.0",
+    "@nestjs/config": "^2.2.0",
+    "@nestjs/core": "^9.2.0",
+    "@nestjs/platform-fastify": "^9.2.0"
+  }
+}

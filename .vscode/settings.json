@@ -9,6 +9,13 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
+    "**/.classpath": true,
+    "**/.DS_STORE": true,
+    "**/.factorypath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/dist/": true,
+    "**/node_modules/": true,
     "**/node_modules": true,
     ".pnpm-store": true
   },
@@ -39,5 +46,6 @@
     "**/.git/subtree-cache/**": true,
     "**/node_modules/*/**": true,
     "**/.hg/store/**": true
-  }
+  },
+  "explorerExclude.backup": {}
 }

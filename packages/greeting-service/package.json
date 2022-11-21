@@ -1,0 +1,16 @@
+{
+  "name": "@bob/greeting-service",
+  "version": "0.0.1",
+  "bin": "./dist/src/index.js",
+  "main": "./src",
+  "scripts": {
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --watch --passWithNoTests"
+  },
+  "dependencies": {
+    "@nestjs/common": "^9.2.0",
+    "@nestjs/config": "^2.2.0",
+    "@nestjs/core": "^9.2.0",
+    "@nestjs/platform-fastify": "^9.2.0"
+  }
+}
