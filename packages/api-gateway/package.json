@@ -1,0 +1,38 @@
+{
+  "name": "@bob/api-gateway",
+  "version": "0.0.1",
+  "private": true,
+  "bin": "./dist/src/index.js",
+  "main": "./src/",
+  "scripts": {
+    "build": "tsc --build --force",
+    "clean:dist": "rm -r ./dist",
+    "clean:turbo": "rm -r ./.turbo",
+    "clean": "pnpm clear:dist && pnpm clear:turbo",
+    "packaging": "pnpm packaging:binary && pnpm packaging:docker",
+    "packaging:binary": "pkg . --target node18-alpine-x64 --output ./dist/bin/server",
+    "packaging:docker": "../../scripts/docker-build.sh",
+    "start:prod": "bash ./scripts/start-prod.sh",
+    "start:debug": "export NODE_ENV=dev && ts-node-dev --respawn --transpile-only ./src/index.ts",
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --watch --passWithNoTests"
+  },
+  "dependencies": {
+    "@nestjs/common": "^9.2.0",
+    "@nestjs/config": "^2.2.0",
+    "@nestjs/core": "^9.2.0",
+    "@nestjs/graphql": "^10.1.6",
+    "@nestjs/jwt": "^9.0.0",
+    "@nestjs/mercurius": "^10.1.6",
+    "@nestjs/microservices": "^9.2.0",
+    "@nestjs/platform-fastify": "^9.2.0",
+    "fastify": "^4.10.2",
+    "graphql": "^16.6.0",
+    "joi": "^17.7.0",
+    "mercurius": "^11.3.0",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.5.7"
+  }
+}
