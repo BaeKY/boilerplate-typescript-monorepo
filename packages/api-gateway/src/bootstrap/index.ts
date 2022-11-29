@@ -5,9 +5,13 @@ import { BootstrapParam } from './types'
 export const bootstrap = async (mainAppModule: new (...args: any[]) => any, param: BootstrapParam): Promise<void> => {
   const { enableCors, fastifyOption, logger, port, onListen, onListenError } = param
 
-  const app = await NestFactory.create<NestFastifyApplication>(mainAppModule, new FastifyAdapter(fastifyOption), {
-    logger
-  })
+  const app = await NestFactory.create<NestFastifyApplication>(
+    mainAppModule,
+    new FastifyAdapter(typeof fastifyOption === 'function' ? fastifyOption() : fastifyOption),
+    {
+      logger
+    }
+  )
   enableCors(app)
 
   const host = '0.0.0.0'
