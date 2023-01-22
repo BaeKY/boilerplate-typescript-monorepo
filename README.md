@@ -3,7 +3,7 @@
 ## Description
 
 - Monorepo template for Typescript & NodeJS with PNPM
-- Macos is recommended.
+- MacOS is recommended.
 
 ## Prerequisite
 
@@ -52,7 +52,7 @@
   pnpm packaging
 
   # Confirm docker image name 'bob/sample-package'
-  docker images
+  docker images | grep bob/sample-package
 
   # Run sample-package
   docker run -it --rm -p 3333:3333 --name greeting bob/sample-package
