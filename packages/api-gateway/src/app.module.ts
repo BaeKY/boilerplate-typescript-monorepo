@@ -3,11 +3,12 @@ import { ConfigModule, ConfigType } from '@nestjs/config'
 import { GraphQLModule } from '@nestjs/graphql'
 import { MercuriusDriver, MercuriusDriverConfig } from '@nestjs/mercurius'
 import { configModuleOption, graphqlConfig } from './config'
-
+import { HealthCheckModule } from './health-check'
 import resolvers from './resolvers'
 
 @Module({
   imports: [
+    HealthCheckModule,
     ConfigModule.forRoot(configModuleOption),
     GraphQLModule.forRootAsync<MercuriusDriverConfig>({
       driver: MercuriusDriver,

@@ -8,8 +8,8 @@
     "build": "turbo build",
     "packaging": "turbo packaging",
     "postinstall": "manypkg check",
-    "kill_node_modules": "pnpm rimraf ./**/node_modules",
-    "reset_modules": "rm -rf ./pnpm-lock.yaml && pnpm store prune && pnpm kill_node_modules && rm -rf ~/Library/pnpm/store/v3/files/"
+    "deps:prune": "pnpm rimraf ./**/node_modules",
+    "store:prune": "rm -rf ./pnpm-lock.yaml && pnpm store prune && pnpm deps:prune && rm -rf ~/Library/pnpm/store/v3/files/"
   },
   "keywords": [
     "boilerplate",
@@ -25,16 +25,14 @@
   "packageManager": "pnpm@7.17.0^",
   "dependencies": {
     "@manypkg/cli": "^0.19.2",
-    "@nestjs/common": "^9.2.1",
-    "@nestjs/core": "^9.2.1",
     "@nestjs/testing": "^9.2.1",
     "@types/bcrypt": "^5.0.0",
-    "@types/jest": "29.2.5",
+    "@types/jest": "29.2.6",
     "@types/node": "^18.11.18",
     "@types/passport-jwt": "^3.0.8",
     "@types/passport-local": "^1.0.35",
-    "@typescript-eslint/eslint-plugin": "^5.48.1",
-    "@typescript-eslint/parser": "^5.48.1",
+    "@typescript-eslint/eslint-plugin": "^5.48.2",
+    "@typescript-eslint/parser": "^5.48.2",
     "del-cli": "^5.0.0",
     "eslint": "^8.32.0",
     "eslint-config-prettier": "^8.6.0",
